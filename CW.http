@@ -1,0 +1,6 @@
+@CW_HostAddress = http://localhost:5199
+
+GET {{CW_HostAddress}}/CW/
+Accept: application/json
+
+###

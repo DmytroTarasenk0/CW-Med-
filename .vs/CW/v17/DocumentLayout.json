@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects_VS\\CW\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\models\\diagnosis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:models\\diagnosis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\controllers\\diagnosiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:controllers\\diagnosiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\client\\diagnosisclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:client\\diagnosisclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 337,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DiagnosisController.cs",
+              "DocumentMoniker": "D:\\Projects_VS\\CW\\Controllers\\DiagnosisController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DiagnosisController.cs",
+              "ToolTip": "D:\\Projects_VS\\CW\\Controllers\\DiagnosisController.cs",
+              "RelativeToolTip": "Controllers\\DiagnosisController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAAB0AAABcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T16:38:13.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DiagnosisClient.cs",
+              "DocumentMoniker": "D:\\Projects_VS\\CW\\Client\\DiagnosisClient.cs",
+              "RelativeDocumentMoniker": "Client\\DiagnosisClient.cs",
+              "ToolTip": "D:\\Projects_VS\\CW\\Client\\DiagnosisClient.cs",
+              "RelativeToolTip": "Client\\DiagnosisClient.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAUwBIAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T16:37:56.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Diagnosis.cs",
+              "DocumentMoniker": "D:\\Projects_VS\\CW\\Models\\Diagnosis.cs",
+              "RelativeDocumentMoniker": "Models\\Diagnosis.cs",
+              "ToolTip": "D:\\Projects_VS\\CW\\Models\\Diagnosis.cs",
+              "RelativeToolTip": "Models\\Diagnosis.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T16:37:36.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects_VS\\CW\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Projects_VS\\CW\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T15:36:45.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Constants.cs",
+              "DocumentMoniker": "D:\\Projects_VS\\CW\\Constants.cs",
+              "RelativeDocumentMoniker": "Constants.cs",
+              "ToolTip": "D:\\Projects_VS\\CW\\Constants.cs",
+              "RelativeToolTip": "Constants.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAACLAwAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T10:37:03.185Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
