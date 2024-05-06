@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "D:\\Projects_VS\\CW\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\models\\diagnosis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:models\\diagnosis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\controllers\\diagnosiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:controllers\\diagnosiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\client\\diagnosisclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:client\\diagnosisclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\wwwroot\\default.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|solutionrelative:wwwroot\\default.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{940EBBA3-7586-4BA7-93F0-31CE0E14FF73}|CW.csproj|d:\\projects_vs\\cw\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 337,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,58 +30,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DiagnosisController.cs",
-              "DocumentMoniker": "D:\\Projects_VS\\CW\\Controllers\\DiagnosisController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DiagnosisController.cs",
-              "ToolTip": "D:\\Projects_VS\\CW\\Controllers\\DiagnosisController.cs",
-              "RelativeToolTip": "Controllers\\DiagnosisController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAAAB0AAABcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T16:38:13.661Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DiagnosisClient.cs",
-              "DocumentMoniker": "D:\\Projects_VS\\CW\\Client\\DiagnosisClient.cs",
-              "RelativeDocumentMoniker": "Client\\DiagnosisClient.cs",
-              "ToolTip": "D:\\Projects_VS\\CW\\Client\\DiagnosisClient.cs",
-              "RelativeToolTip": "Client\\DiagnosisClient.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAUwBIAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T16:37:56.922Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Diagnosis.cs",
-              "DocumentMoniker": "D:\\Projects_VS\\CW\\Models\\Diagnosis.cs",
-              "RelativeDocumentMoniker": "Models\\Diagnosis.cs",
-              "ToolTip": "D:\\Projects_VS\\CW\\Models\\Diagnosis.cs",
-              "RelativeToolTip": "Models\\Diagnosis.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T16:37:36.009Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Projects_VS\\CW\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Projects_VS\\CW\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T15:36:45.195Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Constants.cs",
               "DocumentMoniker": "D:\\Projects_VS\\CW\\Constants.cs",
               "RelativeDocumentMoniker": "Constants.cs",
@@ -97,8 +38,33 @@
               "RelativeToolTip": "Constants.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAACLAwAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-26T10:37:03.185Z",
+              "WhenOpened": "2024-05-06T14:42:51.293Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "default.html",
+              "DocumentMoniker": "D:\\Projects_VS\\CW\\wwwroot\\default.html",
+              "RelativeDocumentMoniker": "wwwroot\\default.html",
+              "ToolTip": "D:\\Projects_VS\\CW\\wwwroot\\default.html",
+              "RelativeToolTip": "wwwroot\\default.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-02T12:45:03.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects_VS\\CW\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Projects_VS\\CW\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAiwCUAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T10:58:19.873Z"
             }
           ]
         }

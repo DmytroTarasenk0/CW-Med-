@@ -31,3 +31,5 @@ D:\Projects_VS\CW\obj\Debug\net8.0\CW.pdb
 D:\Projects_VS\CW\obj\Debug\net8.0\CW.genruntimeconfig.cache
 D:\Projects_VS\CW\obj\Debug\net8.0\ref\CW.dll
 D:\Projects_VS\CW\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Projects_VS\CW\obj\Debug\net8.0\CW.sourcelink.json
+D:\Projects_VS\CW\bin\Debug\net8.0\CW.staticwebassets.runtime.json

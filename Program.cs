@@ -43,9 +43,17 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+var options = new DefaultFilesOptions();
+options.DefaultFileNames.Clear();
+options.DefaultFileNames.Add("default.html");
+app.UseDefaultFiles(options);
+
+app.UseStaticFiles();
+
+app.UseRouting();
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
-
