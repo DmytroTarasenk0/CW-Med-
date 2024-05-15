@@ -2,6 +2,8 @@ using CW.Client;
 using CW;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata;
+using CW.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<PatientContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("PatientDatabase")));
 
 builder.Services.AddSingleton<IssueInfoClient>(serviceProvider =>
 {

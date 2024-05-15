@@ -159,8 +159,17 @@
             const symptomsQueryString = symptoms.map(symptom => `Symptoms=${encodeURIComponent(symptom)}`).join('&');
             const fullUrl = `${apiUrl}${queryString}&${symptomsQueryString}`;
 
-            const response = await fetch(fullUrl, {
+            const response = await fetch(apiUrl, {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    sex: sex,
+                    yearOB: yearOB,
+                    symptoms: symptoms
+                })
             });
 
             if (response.ok) {
@@ -182,7 +191,7 @@
                 symptoms.push(input.value.trim());
             });
 
-            const url = `${apiUrl}?Id=${id}&Name=${name}&Sex=${sex}&YearOB=${yearOB}&Symptoms=${symptoms.join('&Symptoms=')}`;
+            const url = `${apiUrl}/${id}`;
 
             try {
                 const response = await fetch(url, {
@@ -190,6 +199,13 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
+                    body: JSON.stringify({
+                        id: id,
+                        name: name,
+                        sex: sex,
+                        yearOB: yearOB,
+                        symptoms: symptoms
+                    })
                 });
 
                 if (!response.ok) {
@@ -197,8 +213,8 @@
                     throw new Error(errorMessage);
                 }
 
-                const updatedPatient = await response.json();
                 fetchPatients();
+                document.getElementById('edit-patient-form').reset();
                 cancelUpdate();
             } catch (error) {
                 console.error('Error updating patient:', error);

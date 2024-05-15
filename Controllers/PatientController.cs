@@ -1,71 +1,99 @@
-﻿using CW.Models;
+﻿using CW.Data;
+using CW.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CW.Controllers
 {
     [Route("/api/[controller]")]
-    public class PatientController : Controller
+    [ApiController]
+    public class PatientController : ControllerBase
     {
-        private static List<Patient> patients = new List<Patient>(new[]
+        private readonly PatientContext _context;
+
+        public PatientController(PatientContext context)
         {
-            new Patient() { Id = 1, Name = "James", Sex = "Male", YearOB = 2000, Symptoms = new List<string>(new[] {"Cured"} ) },
-            new Patient() { Id = 2, Name = "Sara", Sex = "Female", YearOB = 1990, Symptoms = new List<string>(new[] {"Cured"} ) }
-        });
+            _context = context;
+        }
 
         [HttpGet]
-        public IEnumerable<Patient> Get() => patients;
+        public async Task<ActionResult<IEnumerable<Patient>>> GetPatients()
+        {
+            return await _context.Patients.ToListAsync();
+        }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<ActionResult<Patient>> GetPatient(int id)
         {
-            var patient = patients.SingleOrDefault(p => p.Id == id);
+            var patient = await _context.Patients.FindAsync(id);
+
             if (patient == null)
             {
                 return NotFound();
             }
-            return Ok(patient);
+
+            return patient;
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutPatient(int id, Patient patient)
+        {
+            if (id != patient.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(patient).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PatientExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Patient>> PostPatient(Patient patient)
+        {
+            _context.Patients.Add(patient);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetPatient", new { id = patient.Id }, patient);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> DeletePatient(int id)
         {
-            patients.Remove(patients.SingleOrDefault( p => p.Id == id ));
-            return Ok("Deleted");
-        }
-
-        private int NextId => patients.Count() == 0 ? 1 : patients.Max(x => x.Id) + 1;
-
-        [HttpGet("GetNextId")]
-        public int GetNextId() => NextId;
-
-        [HttpPost]
-        public IActionResult Post(Patient patient)
-        {
-            if (!ModelState.IsValid) 
+            var patient = await _context.Patients.FindAsync(id);
+            if (patient == null)
             {
-                return BadRequest(ModelState);
-            }
-
-            patient.Id = NextId;
-            patients.Add(patient);
-            return CreatedAtAction( nameof(Get), new { id = patient.Id }, patient );
-        }
-
-        [HttpPut]
-        public IActionResult Put(Patient patient)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            var patched_patient = patients.SingleOrDefault(p => p.Id == patient.Id);
-            if (patched_patient == null) 
                 return NotFound();
-            patched_patient.Name = patient.Name;
-            patched_patient.Sex = patient.Sex;
-            patched_patient.YearOB = patient.YearOB;
-            patched_patient.Symptoms = patient.Symptoms;
-            return Ok(patched_patient);
+            }
+
+            _context.Patients.Remove(patient);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool PatientExists(int id)
+        {
+            return _context.Patients.Any(e => e.Id == id);
         }
     }
 }
