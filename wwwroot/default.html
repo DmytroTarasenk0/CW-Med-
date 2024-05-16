@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CW Medical API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #0073e6;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo a {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .container {
+            margin-top: 20px;
+            text-align: center;
+            max-width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #0073e6;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+            .button:hover {
+                background-color: #005bb5;
+            }
+
+            .button:active {
+                background-color: #004494;
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/default.html">CW Medical API</a>
+        </div>
+    </div>
+    <div class="container">
+        <!-- <a class="button" href="/swagger/index.html">Swagger</a> -->
+        <a class="button" href="/patients.html">Patients</a>
+        <a class="button" href="/symptoms.html">Symptoms</a>
+        <a class="button" href="/issueInfo.html">Issue Info</a>
+        <a class="button" href="/diagnosis.html">Make a diagnosis</a>
+    </div>
+</body>
+</html>

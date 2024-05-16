@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Projects_VS\\CW\\wwwroot\\default.html",
+      "PackagePath": "staticwebassets\\default.html"
+    },
+    {
+      "Id": "D:\\Projects_VS\\CW\\wwwroot\\diagnosis.html",
+      "PackagePath": "staticwebassets\\diagnosis.html"
+    },
+    {
+      "Id": "D:\\Projects_VS\\CW\\wwwroot\\issueInfo.html",
+      "PackagePath": "staticwebassets\\issueInfo.html"
+    },
+    {
+      "Id": "D:\\Projects_VS\\CW\\wwwroot\\patients.html",
+      "PackagePath": "staticwebassets\\patients.html"
+    },
+    {
+      "Id": "D:\\Projects_VS\\CW\\wwwroot\\symptoms.html",
+      "PackagePath": "staticwebassets\\symptoms.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CW.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CW.props",
+      "PackagePath": "build\\CW.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CW.props",
+      "PackagePath": "buildMultiTargeting\\CW.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CW.props",
+      "PackagePath": "buildTransitive\\CW.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

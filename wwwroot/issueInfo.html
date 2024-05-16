@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #0073e6;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo a {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .container {
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            color: #333333;
+            font-size: 24px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #e6f3ff;
+        }
+
+        th, td {
+            border: 1px solid #b3d7ff;
+            text-align: left;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #cce6ff;
+            color: #003366;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f9ff;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            font-size: 15px;
+        }
+
+        input[type="number"] {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #ffffff;
+            background-color: #0073e6;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #005bb5;
+            }
+
+            button:active {
+                background-color: #004494;
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/default.html">CW Medical API</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Issue Information</h1>
+        <div class="input-container">
+            <label for="issue-id">Enter Issue ID:</label>
+            <input type="number" id="issue-id" placeholder="Enter Issue ID">
+            <button onclick="fetchIssueInfo()">Get Issue Info</button>
+        </div>
+
+        <table id="issue-info-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Short Description</th>
+                    <th>Medical Condition</th>
+                    <th>Possible Symptoms</th>
+                    <th>Synonyms</th>
+                    <th>Treatment Description</th>
+                    <th>Prof Name</th>
+                </tr>
+            </thead>
+            <tbody id="issue-info-details"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const apiUrl = '/api/IssueInfo';
+
+        async function fetchIssueInfo() {
+            const issueIdInput = document.getElementById('issue-id');
+            const issueId = issueIdInput.value.trim();
+            if (!issueId) {
+                alert('Please enter an Issue ID.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${apiUrl}/${issueId}`);
+                if (!response.ok) {
+                    throw new Error('Issue not found.');
+                }
+                const issueInfo = await response.json();
+                displayIssueInfo(issueInfo);
+            } catch (error) {
+                console.error('Error fetching issue information:', error);
+                alert('Error fetching issue information. Please check the ID and try again.');
+            }
+        }
+
+        function displayIssueInfo(issueInfo) {
+            const issueInfoDetails = document.getElementById('issue-info-details');
+            issueInfoDetails.innerHTML = '';
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                    <td>${issueInfo.name}</td>
+                    <td>${issueInfo.description}</td>
+                    <td>${issueInfo.descriptionShort}</td>
+                    <td>${issueInfo.medicalCondition}</td>
+                    <td>${issueInfo.possibleSymptoms}</td>
+                    <td>${issueInfo.synonyms}</td>
+                    <td>${issueInfo.treatmentDescription}</td>
+                    <td>${issueInfo.profName}</td>
+                `;
+            issueInfoDetails.appendChild(row);
+        }
+    </script>
+</body>
+</html>
