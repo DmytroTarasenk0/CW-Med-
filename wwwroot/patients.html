@@ -5,81 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patients Management</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #0073e6;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo a {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .container {
+            margin-top: 20px;
+            text-align: center;
+            max-width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            color: #333333;
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #e6f3ff;
         }
 
         th, td {
-            border: 1px solid #dddddd;
+            border: 1px solid #b3d7ff;
             text-align: left;
             padding: 8px;
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #cce6ff;
+            color: #003366;
         }
+
+        tr:nth-child(even) {
+            background-color: #f2f9ff;
+        }
+
+        form {
+            max-width: 1000px;
+            margin: 20px auto;
+            text-align: left;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+
+        input[type="text"], input[type="number"], input[type="radio"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #0073e6;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #005bb5;
+            }
+
+            button:active {
+                background-color: #004494;
+            }
     </style>
 </head>
 <body>
-    <h1>Patients Management</h1>
-    <h2>Patients List</h2>
-    <table id="patients-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Sex</th>
-                <th>Year of Birth</th>
-                <th>Symptoms</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="patients-list"></tbody>
-    </table>
-
-    <h2>Add New Patient</h2>
-    <form id="add-patient-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label>Sex:</label>
-        <input type="radio" id="male" name="sex" value="Male" required>
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="sex" value="Female" required>
-        <label for="female">Female</label><br>
-        <label for="yearOB">Year of Birth:</label>
-        <input type="number" id="yearOB" name="yearOB" required><br>
-        <div id="symptoms-container">
-            <label for="symptom1">Symptom 1:</label>
-            <input type="text" id="symptom1" name="symptoms" required><br>
+    <div class="header">
+        <div class="logo">
+            <a href="/default.html">CW Medical API</a>
         </div>
-        <button type="button" id="add-symptom-button" onclick="addSymptom()">Add Symptom</button>
-        <button type="button" id="delete-symptom-button" onclick="deleteSymptom()">Delete Symptom</button><br>
-        <button type="button" id="add-patient-button" onclick="addPatient()">Add Patient</button>
-        <button type="button" onclick="resetForm()">Reset</button>
-    </form>
+    </div>
+    <div class="container">
+        <h1>Patients Management</h1>
+        <h2>Patients List</h2>
+        <table id="patients-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>Year of Birth</th>
+                    <th>Symptoms</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="patients-list"></tbody>
+        </table>
 
-    <!-- Edit Patient Form (hidden by default) -->
-    <h2 id="edit-patient-title" style="display: none;">Edit Patient</h2>
-    <form id="edit-patient-form" style="display: none;">
-        <input type="hidden" id="edit-patient-id">
-        <label for="edit-name">Name:</label>
-        <input type="text" id="edit-name" name="name" required><br>
-        <label>Sex:</label>
-        <input type="radio" id="edit-male" name="sex" value="Male" required>
-        <label for="edit-male">Male</label>
-        <input type="radio" id="edit-female" name="sex" value="Female" required>
-        <label for="edit-female">Female</label><br>
-        <label for="edit-yearOB">Year of Birth:</label>
-        <input type="number" id="edit-yearOB" name="yearOB" required><br>
-        <div id="edit-symptoms-container">
-            <!-- Symptoms will be dynamically added here -->
-        </div>
-        <button type="button" id="edit-add-symptom-button" onclick="editAddSymptom()">Add Symptom</button>
-        <button type="button" id="edit-delete-symptom-button" onclick="editDeleteSymptom()">Delete Symptom</button><br>
-        <button type="button" id="update-patient-button" onclick="updatePatient()">Update Patient</button>
-        <button type="button" id="cancel-update-button" onclick="cancelUpdate()">Cancel</button>
-    </form>
+        <h2>Add New Patient</h2>
+        <form id="add-patient-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label>Sex:</label>
+            <input type="radio" id="male" name="sex" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="sex" value="Female" required>
+            <label for="female">Female</label><br>
+            <label for="yearOB">Year of Birth:</label>
+            <input type="number" id="yearOB" name="yearOB" required><br>
+            <div id="symptoms-container">
+                <label for="symptom1">Symptom 1:</label>
+                <input type="text" id="symptom1" name="symptoms" required><br>
+            </div>
+            <button type="button" id="add-symptom-button" onclick="addSymptom()">Add Symptom</button>
+            <button type="button" id="delete-symptom-button" onclick="deleteSymptom()">Delete Symptom</button><br>
+            <button type="button" id="add-patient-button" onclick="addPatient()">Add Patient</button>
+            <button type="button" onclick="resetForm()">Reset</button>
+        </form>
+
+        <!-- Edit Patient Form (hidden by default) -->
+        <h2 id="edit-patient-title" style="display: none;">Edit Patient</h2>
+        <form id="edit-patient-form" style="display: none;">
+            <input type="hidden" id="edit-patient-id">
+            <label for="edit-name">Name:</label>
+            <input type="text" id="edit-name" name="name" required><br>
+            <label>Sex:</label>
+            <input type="radio" id="edit-male" name="sex" value="Male" required>
+            <label for="edit-male">Male</label>
+            <input type="radio" id="edit-female" name="sex" value="Female" required>
+            <label for="edit-female">Female</label><br>
+            <label for="edit-yearOB">Year of Birth:</label>
+            <input type="number" id="edit-yearOB" name="yearOB" required><br>
+            <div id="edit-symptoms-container">
+                <!-- Symptoms will be dynamically added here -->
+            </div>
+            <button type="button" id="edit-add-symptom-button" onclick="editAddSymptom()">Add Symptom</button>
+            <button type="button" id="edit-delete-symptom-button" onclick="editDeleteSymptom()">Delete Symptom</button><br>
+            <button type="button" id="update-patient-button" onclick="updatePatient()">Update Patient</button>
+            <button type="button" id="cancel-update-button" onclick="cancelUpdate()">Cancel</button>
+        </form>
+    </div>
 
     <script>
         const apiUrl = '/api/Patient';
@@ -246,16 +340,16 @@
                 patients.forEach(patient => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                    <td>${patient.id}</td>
-                    <td>${patient.name}</td>
-                    <td>${patient.sex}</td>
-                    <td>${patient.yearOB}</td>
-                    <td>${patient.symptoms.join(', ')}</td>
-                    <td>
-                        <button onclick="editPatient(${patient.id})">Edit</button>
-                        <button onclick="deletePatient(${patient.id})">Delete</button>
-                    </td>
-                `;
+                            <td>${patient.id}</td>
+                            <td>${patient.name}</td>
+                            <td>${patient.sex}</td>
+                            <td>${patient.yearOB}</td>
+                            <td>${patient.symptoms.join(', ')}</td>
+                            <td>
+                                <button onclick="editPatient(${patient.id})">Edit</button>
+                                <button onclick="deletePatient(${patient.id})">Delete</button>
+                            </td>
+                        `;
                     patientsList.appendChild(row);
                 });
             } catch (error) {

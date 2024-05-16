@@ -5,49 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issue Information</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #0073e6;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo a {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .container {
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            color: #333333;
+            font-size: 24px;
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
+            background-color: #e6f3ff;
         }
 
         th, td {
-            border: 1px solid #dddddd;
+            border: 1px solid #b3d7ff;
             text-align: left;
             padding: 8px;
+            font-size: 14px;
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #cce6ff;
+            color: #003366;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f9ff;
         }
 
         .input-container {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            font-size: 15px;
+        }
+
+        input[type="number"] {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #ffffff;
+            background-color: #0073e6;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #005bb5;
+            }
+
+            button:active {
+                background-color: #004494;
+            }
     </style>
 </head>
 <body>
-    <h1>Issue Information</h1>
-    <div class="input-container">
-        <label for="issue-id">Enter Issue ID:</label>
-        <input type="number" id="issue-id" placeholder="Enter Issue ID">
-        <button onclick="fetchIssueInfo()">Get Issue Info</button>
+    <div class="header">
+        <div class="logo">
+            <a href="/default.html">CW Medical API</a>
+        </div>
     </div>
+    <div class="container">
+        <h1>Issue Information</h1>
+        <div class="input-container">
+            <label for="issue-id">Enter Issue ID:</label>
+            <input type="number" id="issue-id" placeholder="Enter Issue ID">
+            <button onclick="fetchIssueInfo()">Get Issue Info</button>
+        </div>
 
-    <table id="issue-info-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Short Description</th>
-                <th>Medical Condition</th>
-                <th>Possible Symptoms</th>
-                <th>Synonyms</th>
-                <th>Treatment Description</th>
-                <th>Prof Name</th>
-            </tr>
-        </thead>
-        <tbody id="issue-info-details"></tbody>
-    </table>
+        <table id="issue-info-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Short Description</th>
+                    <th>Medical Condition</th>
+                    <th>Possible Symptoms</th>
+                    <th>Synonyms</th>
+                    <th>Treatment Description</th>
+                    <th>Prof Name</th>
+                </tr>
+            </thead>
+            <tbody id="issue-info-details"></tbody>
+        </table>
+    </div>
 
     <script>
         const apiUrl = '/api/IssueInfo';

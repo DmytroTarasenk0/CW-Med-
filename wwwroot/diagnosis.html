@@ -5,66 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnosis</title>
     <style>
-        .input-container {
-            margin-bottom: 10px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
         }
-
+        .header {
+            width: 100%;
+            background-color: #0073e6;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .logo a {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .container {
+            margin-top: 20px;
+            text-align: center;
+            max-width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        h1, h2 {
+            color: #333333;
+        }
         table {
             border-collapse: collapse;
             width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #e6f3ff;
         }
-
         th, td {
-            border: 1px solid #dddddd;
+            border: 1px solid #b3d7ff;
             text-align: left;
             padding: 8px;
         }
-
         th {
-            background-color: #f2f2f2;
+            background-color: #cce6ff;
+            color: #003366;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f9ff;
+        }
+        .input-container {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+        input[type="text"], input[type="number"], select {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #0073e6;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        button:active {
+            background-color: #004494;
         }
     </style>
 </head>
 <body>
-    <h1>Diagnosis</h1>
-
-    <!-- Add New Symptom Form -->
-    <h2>Add New Symptom</h2>
-    <div id="symptoms-container">
-        <div class="input-container">
-            <label for="symptom-1">Enter Symptom:</label>
-            <input type="text" id="symptom-1" placeholder="Enter Symptom">
+    <div class="header">
+        <div class="logo">
+            <a href="/default.html">CW Medical API</a>
         </div>
     </div>
-    <button type="button" onclick="addSymptom()">Add Symptom</button>
-    <div class="input-container">
-        <label for="sex">Select Sex:</label>
-        <select id="sex">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-    </div>
-    <div class="input-container">
-        <label for="year-of-birth">Enter Year of Birth:</label>
-        <input type="number" id="year-of-birth" placeholder="Enter Year of Birth">
-    </div>
-    <button onclick="getDiagnosis()">Get Diagnosis</button>
+    <div class="container">
+        <h1>Diagnosis</h1>
 
-    <h2>Diagnosis Results</h2>
-    <table id="diagnosis-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Accuracy</th>
-                <th>ICD</th>
-                <th>ICD Name</th>
-                <th>Prof Name</th>
-                <th>Ranking</th>
-            </tr>
-        </thead>
-        <tbody id="diagnosis-list"></tbody>
-    </table>
+        <!-- Add New Symptom Form -->
+        <h2>Add New Symptom</h2>
+        <div id="symptoms-container">
+            <div class="input-container">
+                <label for="symptom-1">Enter Symptom:</label>
+                <input type="text" id="symptom-1" placeholder="Enter Symptom">
+            </div>
+        </div>
+        <button type="button" onclick="addSymptom()">Add Symptom</button>
+        <div class="input-container" style="margin-top: 20px;">
+            <label for="sex">Select Sex:</label>
+            <select id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="year-of-birth">Enter Year of Birth:</label>
+            <input type="number" id="year-of-birth" placeholder="Enter Year of Birth">
+        </div>
+        <button onclick="getDiagnosis()">Get Diagnosis</button>
+
+        <h2>Diagnosis Results</h2>
+        <table id="diagnosis-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Accuracy</th>
+                    <th>ICD</th>
+                    <th>ICD Name</th>
+                    <th>Prof Name</th>
+                    <th>Ranking</th>
+                </tr>
+            </thead>
+            <tbody id="diagnosis-list"></tbody>
+        </table>
+    </div>
 
     <script>
         const apiUrl = 'https://localhost:7000/api/Diagnosis';
@@ -76,9 +146,9 @@
             const inputContainer = document.createElement('div');
             inputContainer.classList.add('input-container');
             inputContainer.innerHTML = `
-                <label for="symptom-${symptomCount}">Enter Symptom:</label>
-                <input type="text" id="symptom-${symptomCount}" placeholder="Enter Symptom">
-            `;
+                    <label for="symptom-${symptomCount}">Enter Symptom:</label>
+                    <input type="text" id="symptom-${symptomCount}" placeholder="Enter Symptom">
+                `;
             symptomsContainer.appendChild(inputContainer);
         }
 
@@ -124,18 +194,17 @@
             diagnosis.forEach(issue => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                <td>${issue.issue.id}</td>
-                <td>${issue.issue.name}</td>
-                <td>${issue.issue.accuracy}</td>
-                <td>${issue.issue.icd}</td>
-                <td>${issue.issue.icdName}</td>
-                <td>${issue.issue.profName}</td>
-                <td>${issue.issue.ranking}</td>
-                `;
+                    <td>${issue.issue.id}</td>
+                    <td>${issue.issue.name}</td>
+                    <td>${issue.issue.accuracy}</td>
+                    <td>${issue.issue.icd}</td>
+                    <td>${issue.issue.icdName}</td>
+                    <td>${issue.issue.profName}</td>
+                    <td>${issue.issue.ranking}</td>
+                    `;
                 diagnosisList.appendChild(row);
             });
         }
     </script>
-
 </body>
 </html>
