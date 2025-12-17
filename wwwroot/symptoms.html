@@ -4,109 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Symptoms</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f4f4f9;
-            overflow-x: hidden;
-        }
-
-        .header {
-            width: 100%;
-            background-color: #0073e6;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .logo a {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .container {
-            margin-top: 20px;
-            text-align: center;
-            max-width: 100%;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        h1, h2 {
-            color: #333333;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: #e6f3ff;
-        }
-
-        th, td {
-            border: 1px solid #b3d7ff;
-            text-align: left;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #cce6ff;
-            color: #003366;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f9ff;
-        }
-
-        form {
-            max-width: 1000px;
-            margin: 20px auto;
-            text-align: left;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: inline-block;
-            width: 150px;
-        }
-
-        input[type="text"], input[type="number"], input[type="radio"] {
-            margin-bottom: 10px;
-        }
-
-        button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #ffffff;
-            background-color: #0073e6;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-        }
-
-            button:hover {
-                background-color: #005bb5;
-            }
-
-            button:active {
-                background-color: #004494;
-            }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="header">
@@ -126,34 +24,6 @@
             <tbody id="symptoms-list"></tbody>
         </table>
     </div>
-
-    <script>
-        const apiUrl = '/api/Symptom';
-
-        async function fetchSymptoms() {
-            try {
-                const response = await fetch(apiUrl);
-                const symptoms = await response.json();
-                displaySymptoms(symptoms);
-            } catch (error) {
-                console.error('Error fetching symptoms:', error);
-            }
-        }
-
-        function displaySymptoms(symptoms) {
-            const symptomsList = document.getElementById('symptoms-list');
-            symptomsList.innerHTML = '';
-            symptoms.forEach(symptom => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                        <td>${symptom.id}</td>
-                        <td>${symptom.name}</td>
-                    `;
-                symptomsList.appendChild(row);
-            });
-        }
-
-        fetchSymptoms();
-    </script>
+    <script src="symptoms.js"></script>
 </body>
 </html>
